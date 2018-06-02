@@ -12,9 +12,19 @@ import {
 } from 'react-native';
 
 export default class SearchPage extends Component<{}> {
+  
+  constructor(props) {
+  	super(props);
+  	this.state = {
+    searchString: 'london'
+  	};
+  }
+
   render() {
     return (
+      // Main View
       <View style={styles.container}>
+        // First Text
         <Text style={styles.description}>
           Search for houses to buy!
         </Text>
@@ -22,21 +32,27 @@ export default class SearchPage extends Component<{}> {
           Search by place-name or postcode.
         </Text>
 
+        // Sub View
         <View style={styles.flowRight}>
   		<TextInput
-    		style={styles.searchInput}
-   			 placeholder='Search via name or postcode'
-   		/>
+  			style={styles.searchInput}
+  			value={this.state.searchString}
+  			placeholder='Search via name or postcode'
+  		/>
   		<Button
    		 onPress={() => {}}
    		 color='#48BBEC'
    		 title='Go'
   		/>
 		</View>
+		// End sub view
+
+		// House image 
 		<Image source={require('./Resources/house.png')} style={styles.image}/>
 
 
       </View>
+      // End Main View
     );
   }
 }
