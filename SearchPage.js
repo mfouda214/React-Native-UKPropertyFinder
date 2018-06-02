@@ -13,6 +13,7 @@ import {
 
 export default class SearchPage extends Component<{}> {
   
+  // Constructor
   constructor(props) {
   	super(props);
   	this.state = {
@@ -20,6 +21,14 @@ export default class SearchPage extends Component<{}> {
   	};
   }
 
+   // Text change Event Handler
+  _onSearchTextChanged = (event) => {
+  console.log('_onSearchTextChanged');
+  this.setState({ searchString: event.nativeEvent.text });
+  console.log('Current: '+this.state.searchString+', Next: '+event.nativeEvent.text);
+};
+
+  //Layout Views
   render() {
     return (
       // Main View
