@@ -52,6 +52,16 @@ export default class SearchPage extends Component<{}> {
   _executeQuery = (query) => {
   	console.log(query);
   	this.setState({ isLoading: true });
+
+    // Use of the fetch function, which is part of the Fetch API
+    fetch(query)
+    .then(response => response.json())
+    .then(json => this._handleResponse(json.response))
+    .catch(error =>
+     this.setState({
+      isLoading: false,
+      message: 'Something bad happened ' + error
+   }));
   };
 
   // On Search
