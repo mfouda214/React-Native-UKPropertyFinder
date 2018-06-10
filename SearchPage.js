@@ -70,6 +70,16 @@ export default class SearchPage extends Component<{}> {
  	 this._executeQuery(query);
   };
 
+  // Handle Response
+  _handleResponse = (response) => {
+    this.setState({ isLoading: false , message: '' });
+    if (response.application_response_code.substr(0, 1) === '1') {
+      console.log('Properties found: ' + response.listings.length);
+    } else {
+      this.setState({ message: 'Location not recognized; please try again.'});
+    }
+};
+
   // UI Layout Views
   render() {
   	const spinner = this.state.isLoading ?
