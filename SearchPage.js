@@ -60,7 +60,7 @@ export default class SearchPage extends Component<{}> {
  	 this._executeQuery(query);
   };
 
-  //Layout Views
+  // UI Layout Views
   render() {
   	const spinner = this.state.isLoading ?
   		<ActivityIndicator size='large'/> : null;
@@ -78,19 +78,20 @@ export default class SearchPage extends Component<{}> {
 
         // Sub View
         <View style={styles.flowRight}>
-  		<TextInput
-  			style={styles.searchInput}
-  			value={this.state.searchString}
-  			onChange={this._onSearchTextChanged}
-  			placeholder='Search via name or postcode'
-  		/>
-  		<Button
-   		 onPress={this._onSearchPressed}
-   		 color='#48BBEC'
-   		 title='Go'
-  		/>
-		</View>
-		// End sub view
+  		    <TextInput
+  			     style={styles.searchInput}
+  		 	     value={this.state.searchString}
+        		 onChange={this._onSearchTextChanged}
+        		 placeholder='Search via name or postcode'
+  		     />
+  		    <Button
+   		     onPress={this._onSearchPressed}
+   		     color='#48BBEC'
+   		     title='Go'
+  		    />
+
+        </View>
+		    // End sub view
 
 		// House image
 		<Image source={require('./Resources/house.png')} style={styles.image}/>
@@ -98,7 +99,10 @@ export default class SearchPage extends Component<{}> {
 		// Loading spinner
 		{spinner}
 
-      </View>
+    // Display a range of messages to the user
+    <Text style={styles.description}>{this.state.message}</Text>
+
+  </View>
       // End Main View
     );
   }
